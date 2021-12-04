@@ -1,0 +1,30 @@
+1- Buy a VPS in a trusted company (we used OVH)
+2- Choose a the plan that will satisfy your needs
+3- Choose the operating the system that you are going to use and then put your location information in.
+4- After receiving an email with the username, ip address and the password, you will be able to login with the vps
+5- Install ssh 
+6- Use the data that is in the email to login in your vps (ssh root_name@ip_address)
+7- As soon as you login, change the password for security purpose 
+8- Create a user for each team member
+9- Then we created a pair of private-public SSH keys (each member needs to do this step on his own machine)
+10- It's also a good habit to, at this point, update your system
+11- Install nginx
+12- Check on the browser if nginx is running perfectly or use systemctl
+13- each team member needs to create a directory with his name in this path: /var/www/html/
+14- Then each one can insert his own website and name his main html page index.html
+15- Now, by typing the ip address then your name in the browser, it should open your website
+16- You can now try to use a static web generator (Jekyll)
+17- In order to build a Jekyll website, you need first of all to install the ruby package
+18- Also, you need to install the bundle in case there are any missing gems
+19- Before creating the website, to be able to auto-deploy this website, you need to install git 
+20- Enter the directory of your git repository of the unix project
+21- You can now create a Jekyll project 
+22- Try different commands with git (add, commit, push)
+23- Now from the server, clone the repository in your regular user's home directory
+24- Build the website in the repository (so the server will use the nginx instance, not the embedded one)
+25- Copy the content of the folder _site/ to /var/www/html/
+26- Now you will be able to access the website by writing http://vps_ip_address
+27- To do auto-deployement your will need to create a script file in /usr/bin/ and a service file in etc/systemd/system/ that will run the script file
+28- The script needs to pull the changes from the git repo and if there are any changes the script needs to build the website and copy the files to be excuted by nginx
+29- It needs to do this every coupe minutes, so setup a timer 
+30- enable the service file with systemctl
